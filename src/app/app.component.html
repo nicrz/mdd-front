@@ -1,8 +1,8 @@
 <div class="app">
   <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-    <span>Rental app</span>
+    <span>Monde de Dev</span>
     <div *ngIf="$isLogged() | async; else notLogged">
-      <span routerLink="rentals" class="link">Rentals</span>
+      <span routerLink="rentals" class="link">Monde De Dev</span>
       <span routerLink="me" class="link">Account</span>
       <span (click)="logout()" class="link">Logout</span>
     </div>

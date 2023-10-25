@@ -17,8 +17,8 @@ export class RegisterComponent {
   public onError = false;
 
   public form = this.fb.group({
+    username: ['', [Validators.required, Validators.min(3)]],
     email: ['', [Validators.required, Validators.email]],
-    name: ['', [Validators.required, Validators.min(3)]],
     password: ['', [Validators.required, Validators.min(3)]]
   });
 
@@ -34,7 +34,7 @@ export class RegisterComponent {
         localStorage.setItem('token', response.token);
         this.authService.me().subscribe((user: User) => {
           this.sessionService.logIn(user);
-          this.router.navigate(['/rentals'])
+          this.router.navigate(['/'])
         });
       },
       error => this.onError = true
