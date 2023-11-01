@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthService } from '../features/auth/services/auth.service';
 import { User } from '../interfaces/user.interface';
+import { SessionInformation } from '../interfaces/sessionInformation.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,9 @@ import { User } from '../interfaces/user.interface';
 export class SessionService {
 
   public isLogged = false;
-  public user: User | undefined;
-
+  public sessionInformation: User | undefined;
+  //public user: User | undefined;
+  
   private isLoggedSubject = new BehaviorSubject<boolean>(this.isLogged);
 
   public $isLogged(): Observable<boolean> {
@@ -18,14 +20,13 @@ export class SessionService {
   }
 
   public logIn(user: User): void {
-    this.user = user;
+    this.sessionInformation = user;
     this.isLogged = true;
     this.next();
   }
 
   public logOut(): void {
-    localStorage.removeItem('token');
-    this.user = undefined;
+    this.sessionInformation = undefined;
     this.isLogged = false;
     this.next();
   }

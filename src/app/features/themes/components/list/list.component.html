@@ -1,0 +1,25 @@
+<div class="list">
+  <mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-card-title class="m0">Liste des thèmes</mat-card-title>
+    </mat-card-header>
+    <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
+      <mat-card class="item" *ngFor="let theme of themes" fxFlex>
+        <mat-card-header>
+          <mat-card-title>{{ theme.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ theme.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">
+            <mat-icon>search</mat-icon>
+            <span class="ml1">S'abonner</span>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>
