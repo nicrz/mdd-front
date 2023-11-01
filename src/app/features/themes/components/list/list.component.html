@@ -14,10 +14,14 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary">
-            <mat-icon>search</mat-icon>
-            <span class="ml1">S'abonner</span>
-          </button>
+    <button *ngIf="user && !theme.isSubscribed" mat-raised-button color="primary" (click)="subscribe(theme.id)">
+      <mat-icon>person_add</mat-icon>
+      <span class="ml1">S'abonner</span>
+    </button>
+    <button *ngIf="user && theme.isSubscribed" mat-raised-button color="warn" (click)="unSubscribe(theme.id)">
+      <mat-icon>person_remove</mat-icon>
+      <span class="ml1">Se désabonner</span>
+    </button>
         </mat-card-actions>
       </mat-card>
     </div>
