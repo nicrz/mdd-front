@@ -1,0 +1,22 @@
+<div class="list">
+  <mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-card-title class="m0">Liste des articles</mat-card-title>
+      <a [routerLink]="['/articles/create']">Créer un article</a>
+    </mat-card-header>
+    <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
+      <mat-card class="item" *ngFor="let article of articles" fxFlex>
+        <mat-card-header fxLayout="column">
+        <a [routerLink]="['detail',article.id]">
+          <mat-card-title>{{ article.title }}</mat-card-title>
+        </a>
+          <p>Auteur : {{ article.author_id.username }}</p>
+          <p>Date : {{ article.created_at | date: 'dd/MM/yyyy' }}</p>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ article.content.length > 200 ? article.content.slice(0, 200) + '...' : article.content }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>

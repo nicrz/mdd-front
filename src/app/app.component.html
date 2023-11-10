@@ -2,7 +2,8 @@
   <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
     <span>Monde de Dev</span>
     <div *ngIf="$isLogged() | async; else notLogged">
-      <span routerLink="themes" class="link">Thèms</span>
+      <span routerLink="articles" class="link">Articles</span>
+      <span routerLink="themes" class="link">Thèmes</span>
       <span routerLink="me" class="link">Account</span>
       <span (click)="logout()" class="link">Logout</span>
     </div>
