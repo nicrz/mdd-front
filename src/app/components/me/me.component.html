@@ -1,22 +1,57 @@
 <div class="me">
-    <mat-card class="">
-        <mat-card-title>
+  <mat-card class="">
+    <mat-card-title>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button (click)="back()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h1>Profil utilisateur</h1>
+      </div>
+    </mat-card-title>
 
-            <div fxLayout="row" fxLayoutAlign="start center">
-                <button mat-icon-button (click)="back()">
-                    <mat-icon>arrow_back</mat-icon>
-                </button>
-                <h1>User information</h1>
-            </div>
-            
-        </mat-card-title>
-        <mat-card-content>
-            <div *ngIf="user" fxLayout="column" fxLayoutAlign="start center">
-                <p>Name: {{ user.username }}</p>
-                <p>Email: {{ user.email }}</p>
-                <p><i>Create at: </i> {{ user.created_at| date: 'longDate'}}</p>
-                <p><i>Last update: </i> {{ user.updated_at| date: 'longDate'}}</p>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <mat-card-content *ngIf="userForm">
+      <!-- Formulaire de mise à jour du profil utilisateur -->
+      <form class="mt2" fxLayout="column" [formGroup]="userForm" (ngSubmit)="submit()">
+        <mat-form-field appearance="outline" class="" fxFlex>
+          <mat-label>Nom d'utilisateur</mat-label>
+          <input matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="" fxFlex>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="" fxFlex>
+          <mat-label>Mot de passe</mat-label>
+          <input matInput formControlName="password">
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">
+            Modifier
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <!-- Affichage des thèmes abonnés -->
+    <mat-card-content *ngIf="subscribedThemes.length > 0">
+      <h2>Thèmes auxquels vous êtes abonné :</h2>
+      <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
+        <mat-card class="item" *ngFor="let theme of subscribedThemes" fxFlex>
+          <mat-card-header>
+            <mat-card-title>{{ theme.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ theme.description }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="unSubscribe(theme.id)">
+              <mat-icon>person_remove</mat-icon>
+              <span class="ml1">Se désabonner</span>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

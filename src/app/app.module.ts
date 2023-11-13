@@ -14,6 +14,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { MeComponent } from './components/me/me.component';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ListComponent } from './features/themes/components/list/list.component';
 import { ArticlesListComponent } from './features/articles/components/list/list.component';
 import { ArticleDetailComponent } from './features/articles/components/detail/detail.component';
@@ -50,6 +51,7 @@ const materialModule = [
     FlexLayoutModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
     ...materialModule
   ],
   providers: [

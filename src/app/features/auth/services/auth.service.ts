@@ -23,6 +23,10 @@ export class AuthService {
     return this.httpClient.post<AuthSuccess>(`${this.pathService}/login`, loginRequest);
   }
 
+  public update(id: number, registerRequest: RegisterRequest): Observable<AuthSuccess> {
+    return this.httpClient.put<AuthSuccess>(`${this.pathService}/update/${id}`, registerRequest);
+  }
+
   public me(): Observable<User> {
     return this.httpClient.get<User>(`${this.pathService}/me`);
   }
