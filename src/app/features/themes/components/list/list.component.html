@@ -14,7 +14,7 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-    <button *ngIf="user && !theme.isSubscribed" mat-raised-button color="primary" (click)="subscribe(theme.id)">
+    <button *ngIf="user && !theme.isSubscribed" mat-raised-button [style.background]="'#7451EB'" color="primary" (click)="subscribe(theme.id)">
       <mat-icon>person_add</mat-icon>
       <span class="ml1">S'abonner</span>
     </button>

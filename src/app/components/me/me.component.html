@@ -29,8 +29,11 @@
           <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">
             Modifier
           </button>
+          
         </div>
+        
       </form>
+      <span (click)="logout()" class="link">Se déconnecter</span>
     </mat-card-content>
 
     <!-- Affichage des thèmes abonnés -->

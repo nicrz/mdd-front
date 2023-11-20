@@ -2,7 +2,9 @@
   <mat-card>
     <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
       <mat-card-title class="m0">Liste des articles</mat-card-title>
-      <a [routerLink]="['/articles/create']">Créer un article</a>
+      <button mat-raised-button [style.background]="'#7451EB'" color="primary" [routerLink]="['/articles/create']">
+  Nouvel article
+</button>
     </mat-card-header>
     <div class="items mt2" fxLayout="row wrap" fxLayout.lt-md="column">
       <mat-card class="item" *ngFor="let article of articles" fxFlex>

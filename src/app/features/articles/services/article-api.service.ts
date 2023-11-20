@@ -14,7 +14,7 @@ export class ArticleApiService {
   }
 
   public all(): Observable<Article[]> {
-    return this.httpClient.get<Article[]>(`${this.pathService}/list`);
+    return this.httpClient.get<Article[]>(`${this.pathService}/user-feed`);
   }
 
   public detail(id: number): Observable<Article> {

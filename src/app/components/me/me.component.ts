@@ -30,7 +30,8 @@ export class MeComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private sessionService: SessionService,
     private snackBar: MatSnackBar,
-    private themeApiService: ThemeApiService 
+    private themeApiService: ThemeApiService,
+    private router: Router
     ) { this.userId = this.sessionService.sessionInformation!.id; }
 
     public ngOnInit(): void {
@@ -120,6 +121,11 @@ public unSubscribe(themeId: number): void {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
     }
+  }
+
+  public logout(): void {
+    this.sessionService.logOut();
+    this.router.navigate([''])
   }
 
 

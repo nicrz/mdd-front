@@ -1,11 +1,10 @@
 <div class="app">
-  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-    <span>Monde de Dev</span>
+  <mat-toolbar color="white" fxLayout="row" fxLayoutAlign="space-between center">
+    <img src="../assets/img/logo-mini.png">
     <div *ngIf="$isLogged() | async; else notLogged">
       <span routerLink="articles" class="link">Articles</span>
       <span routerLink="themes" class="link">Thèmes</span>
-      <span routerLink="me" class="link">Account</span>
-      <span (click)="logout()" class="link">Logout</span>
+      <span routerLink="me" class="link"><img src="../assets/img/my-account.png" height="30px" width="30px"></span>
     </div>
     <ng-template #notLogged>
       <div>
